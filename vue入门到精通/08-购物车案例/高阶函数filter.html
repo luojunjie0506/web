@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{message}}</h2>
+      <h2>小于100的:{{getS}}</h2>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: [10, 30, 105, 80, 61, 541, 20],
+        },
+        computed: {
+          getS() {
+            // .filter返回的是一个数组
+            // filter里面的函数是回调函数写判断语句, 必须要返回boolean值;
+            // 当返回true时,函数会将当次n值加入到数组中
+            // 当返回false时,函数会过滤掉当次n
+            // n就是数组每次循环的值
+            let newN = this.message.filter(function (n) {
+              return n < 100;
+            });
+            return newN;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

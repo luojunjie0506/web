@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <span v-if="isUser">
+        <!-- label的for用户点了label后焦点会定位for指向的id上去 -->
+        <label for="user">用户账号:</label>
+        <input type="text" id="user" placeholder="用户账号" />
+      </span>
+      <span v-else>
+        <label for="email">用户邮箱:</label>
+        <input type="text" id="email" placeholder="用户邮箱" />
+      </span>
+      <button @click="btn">切换类型</button>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+          isUser: true,
+        },
+        methods: {
+          btn() {
+            this.isUser = !this.isUser;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

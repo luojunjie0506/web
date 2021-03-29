@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <ul>
+        <!-- 在数组中的每个都是唯一的时候,使用v-for的时候要加上key,绑定的是item -->
+        <li v-for="item in name" :key='item'>{{item}}</li>
+      </ul>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          name: ["A", "B", "C", "D"],
+        },
+      });
+    </script>
+  </body>
+</html>

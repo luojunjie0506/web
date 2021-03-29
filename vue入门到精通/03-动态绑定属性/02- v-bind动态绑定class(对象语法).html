@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active1 {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <div id='app'>
+        <!-- <h2 class='active'>{{message}}</h2> -->
+        <h2 :class='active1'>{{message}}</h2>
+        <!-- 如果boolean为true的时候就会添加上这个类名 -->
+        <!-- <h2 :class='{类名:boolean,类名2:boolean}'>{{message}}</h2> -->
+        <h2 class='title' :class='{active1:isActive,line:isLine}'>{{message}}</h2>
+        <h2 class='title' :class='getClass()'>{{message}}</h2>
+        <button :class='{"active1":isActive}' @click='dian'>按钮</button>
+    </div>
+     
+    <script src='../vue.js'></script>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+            data : {
+                message: 'hah',
+                isActive:false,
+                isLine:true
+            },
+            methods:{
+                dian:function(){
+                    this.isActive = !this.isActive
+                },
+                getClass:function(){
+                    return {active1:this.isActive,line:this.isLine}
+                }
+            }
+        });
+    </script>
+</body>
+</html>

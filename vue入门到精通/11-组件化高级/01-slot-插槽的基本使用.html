@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <!-- 1.插槽的基本使用 <slot></slot>
+    2.插槽默认值 <slot>button</slot>
+    3.如果有多个值,同时放入到组件进行替换时,一起替换默认值 -->
+
+    <div id="app">
+      <cpn>
+        <h4>你好哦</h4>
+        <span>哈哈哈</span>
+      </cpn>
+      <cpn>
+        <i>呵呵</i>
+      </cpn>
+      <cpn> </cpn>
+    </div>
+
+    <template id="cpn">
+      <div>
+        <h2>我是组件</h2>
+        <!-- slot预留位置,在cpn写入要插入的东西 -->
+        <slot>
+          <!-- 如果slot里面写有标签,cpn里面没有写标签,那就默认显示slot里面的内容,如果cpn里面有写标签,那就会替换slot里面的内容 -->
+          <button>按钮</button>
+        </slot>
+      </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+        },
+        components: {
+          cpn: {
+            template: "#cpn",
+          },
+        },
+      });
+    </script>
+  </body>
+</html>
