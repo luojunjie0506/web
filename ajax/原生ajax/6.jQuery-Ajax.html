@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../public/bootstrap/css/bootstrap.css">
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h2 class="page-header">jquery发送Ajax请求</h2>
+        <button type="button" class="btn btn-success">GET</button>
+        <button type="button" class="btn btn-info">POST</button> 
+        <button type="button" class="btn btn-warning">（警告）Warning</button> 
+    </div>
+    <script>
+        // 加了json就是json对象，不加就是json字符串
+        $('button').eq(0).click(function() {
+            $.get('http://localhost:8000/jquery',{a:100,b:200},function(data) {
+                console.log(data);
+            },'json')
+        })
+
+
+        $('button').eq(1).click(function() {
+            $.post('http://localhost:8000/jquery',{a:100,b:200},function(data) {
+                console.log(data);
+            })
+        })
+
+    </script>
+</body>
+</html>

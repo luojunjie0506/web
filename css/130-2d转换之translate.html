@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        /* translate移动盒子位置，不会影响其他盒子 */
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            /* 第一个参数是x轴上移动位置，第二个参数是y轴上移动位置
+            transform: translate(100px,200px); */
+            /* 分开写的时候同时用x,y只会执行最后一个
+            transform: translateX(100px);
+            transform: translateY(200px); */
+        }
+        div:first-child {
+            transform: translate(30px,30px);
+        }
+        div:last-child {
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <div></div>
+</body>
+</html>

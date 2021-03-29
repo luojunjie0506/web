@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="father">
+        <div class="son">son盒子</div>
+    </div>
+    <div class="father1">
+        <div class="son1">son1盒子</div>
+    </div>
+    <script>
+        // dom 事件流 三个阶段
+        var son = document.querySelector('.son')
+        // addEventListener第三个参数是true 那么就处于捕获阶段
+        // 捕获顺序 document→html→body→father→son 因为father和son都绑定事件,并且先过father再过son,所以先输出father
+        son.addEventListener('click',function() {
+            alert('son')
+        },true)
+        var father = document.querySelector('.father')
+        father.addEventListener('click',function() {
+            alert('father')
+        },true)
+
+        var son1 = document.querySelector('.son1')
+        var father1 = document.querySelector('.father1')
+        // addEventListener第三个参数是false 那么就处于冒泡阶段
+        // 捕获顺序 son→father→body→html→document因为father和son都绑定事件,并且先过son再过father,所以先输出son       
+        son1.addEventListener('click',function() {
+            alert('son1')
+        },false)
+        father1.addEventListener('click',function() {
+            alert('father1')
+        },false)
+    </script>
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{message}}</h2>
+      <h2>求和:{{getS}}</h2>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: [10, 30, 105, 80, 61, 541, 20],
+        },
+        computed: {
+          getS() {
+            // .reduce作用是对数组的汇总
+            // .reduce返回的是一个值
+            // reduce要传两个参数.一个是回调函数,一个是初始化值
+            // 回调函数中也要两个参数;
+            // 初始化值就是第一次对回调函数中赋值
+            // n就是数组每次循环的值
+            // 回调函数中返回的值就赋值给prevValue
+            let newN = this.message.reduce(function (prevValue, n) {
+              return prevValue + n;
+            }, 0);
+            return newN;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

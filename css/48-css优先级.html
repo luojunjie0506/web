@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+<!-- 	选择器相同，则执行层叠性
+	选择器不同，就选择器的优先级执行 -->
+	<!-- !important > 行内样式style > id选择器 > 类选择器，伪类选择器 > 元素选择器 > 继承或* -->
+	<style type="text/css">
+		div {
+			color: pink!important;
+		}
+		.test {
+			color: red;
+		}
+		#test {
+			color: green;
+		}
+	</style>
+</head>
+<body>
+	<div class="test" id="test" style="color: skyblue">你好猥琐啊！</div>
+</body>
+</html>

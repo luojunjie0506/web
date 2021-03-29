@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+</head>
+<body>
+	<form>
+		用户名：<input type="text" name="username" value="请输入用户名" maxlength="6"><br>
+		密码： <input type="password" name="password"><br>
+		<!-- radio 单选  同一组单选按钮的name必须是同一个
+			checked="checked"默认选中-->
+		性别：男<input type="radio" name="sex" value="男"> 女<input type="radio" name="sex" value="女" checked="checked"> <br>
+		
+		<!-- checkbox 复选框  同一组复选框的name必须是同一个-->
+		爱好：吃饭 <input type="checkbox" name="hobby" value="吃饭" checked="checked"> 睡觉<input type="checkbox" name="hobby" value="睡觉"> 打豆豆<input type="checkbox" name="hobby" value="打豆豆"> <br>
+
+		<!-- submit提交表单中的数据 -->
+		<input type="submit" value="注册">
+		<!-- reset重置表单中数据 -->
+		<input type="reset" value="重置">
+		<!-- button普通按钮 -->
+		<input type="button" name="" value="点击">
+		<!-- file文件域 上传文件用 -->
+		<input type="file" name="">
+	</form>
+</body>
+</html>

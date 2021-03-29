@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn></cpn>
+      <cpn></cpn>
+    </div>
+
+    <!-- 如果模板中定义有方法,方法要写在组件注册函数里面 -->
+    <template id="cpn">
+      <div>
+        <h2>当前计数:{{num}}</h2>
+        <button @click="add">+</button>
+        <button @click="jian">-</button>
+      </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+      Vue.component("cpn", {
+        template: "#cpn",
+        // data函数的话这样该组件被调用多次的话,数据就不会相互影响
+        data() {
+          return {
+            num: 1,
+          };
+        },
+        methods: {
+          add() {
+            this.num++;
+          },
+          jian() {
+            this.num--;
+          },
+        },
+      });
+
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+        },
+      });
+    </script>
+  </body>
+</html>

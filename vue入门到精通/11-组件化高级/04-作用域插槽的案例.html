@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{message}}</h2>
+      <cpn></cpn>
+      <cpn></cpn>
+
+      <cpn>
+        <!-- 获取子组件中的lists数据 -->
+        <!-- 通过下面的代码就可以获取模板中变量data -->
+        <template slot-scope="slot"> {{slot.data}} </template>
+      </cpn>
+    </div>
+
+    <template id="cpn">
+      <div>
+        <!-- 在插槽中定义一个变量data保存lists -->
+        <slot :data="lists">
+          <ul>
+            <li v-for="item in lists">{{item}}</li>
+          </ul>
+        </slot>
+      </div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+        },
+        components: {
+          cpn: {
+            template: "#cpn",
+            data() {
+              return {
+                lists: ["你好", "我好", "他好", "大家好"],
+              };
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

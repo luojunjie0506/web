@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="bootstrap/css/bootstrap.css">
+    <script src="Ajax.js"></script>
+    <script src="template-web.js"></script>
+    <style>
+        .container {
+            padding-top: 100px;
+        }
+        .form-gronp {
+            float: left;
+            padding-right: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="form-inline">
+            <div class="form-gronp">
+                <select  id="province" class="form-control">
+                    <option>请选择省份</option>
+                </select>
+            </div>
+            <div class="form-gronp">
+                <select  id="city" class="form-control">
+                    <option>请选择城市</option>
+                </select>
+            </div>
+            <div class="form-gronp">
+                <select  id="area" class="form-control">
+                    <option>请选择县城</option>
+                </select>
+            </div>
+        </div>
+    </div>
+    <!-- 省份模板 -->
+    <script type="text/html" id='provinceIpt'>
+        <!-- 循环从服务器返回的数据 -->
+        {{each province}}
+            <option value='{{$value.id}}'>{{$value.name}}</option>
+        {{/each}}
+    </script>
+    <!-- 城市模板 -->
+    <script type="text/html" id='cityIpt'>
+        <!-- 循环从服务器返回的数据 -->
+        {{each city}}
+            <option value='{{$value.id}}'>{{$value.name}}</option>
+        {{/each}}
+    </script>
+    <!-- 区模板 -->
+    <script type="text/html" id='areaIpt'>
+        <!-- 循环从服务器返回的数据 -->
+        {{each area}}
+            <option value='{{$value.id}}'>{{$value.name}}</option>
+        {{/each}}
+    </script>
+    <script>
+        var province = document.getElementById('province')
+        var city = document.getElementById('city') 
+        var area = document.getElementById('area')
+        // 获取省份信息
+        ajax({
+            url:'https://m4shop.szrongge.cn:8443/api/open',
+            data:{
+                regionId:2222
+            },
+            success:function(data) {
+                // 将服务器返回的数据跟html拼接
+                var html = template('provinceIpt',{province:data})
+                province.innerHTML = html
+            },
+            error:function(data) {
+                console.log(data);
+            }
+        })
+        
+        // 给省份的下拉框绑定事件
+        province.onchange = function() {
+            // 获取省份id
+            var pid = this.value
+
+            // 当改变省份选项时,清空区中的数据
+            var html = template('areaIpt',{city:[]})
+            province.innerHTML = html
+
+            ajax({
+                url:'https://m4shop.szrongge.cn:8443/api/open',
+                data: {
+                    regionId:6666
+                },
+                success:function(data) {
+                    // 将服务器返回的数据跟html拼接
+                    var html = template('cityIpt',{city:data})
+                    province.innerHTML = html
+                },
+                error:function(data) {
+                    console.log(data);
+                }
+            }) 
+        }
+
+        // 给城市的下拉框绑定事件
+        city.onchange = function() {
+            // 获取省份id
+            var pid = this.value
+            ajax({
+                url:'https://m4shop.szrongge.cn:8443/api/open',
+                data: {
+                    regionId:6666
+                },
+                success:function(data) {
+                    // 将服务器返回的数据跟html拼接
+                    var html = template('areaIpt',{area:data})
+                    province.innerHTML = html
+                },
+                error:function(data) {
+                    console.log(data);
+                }
+            }) 
+        }
+    </script>
+</body>
+</html>

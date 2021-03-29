@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .container {
+            width: 450px;
+            height: 80px;
+            margin: auto;
+            margin-top: 100px;
+            border-radius: 10px;
+            border: 1px solid #c8c7c8;
+        }
+        .container div {
+            float: left;
+            width: 150px;
+            line-height: 80px;
+            text-align: center;
+            font-size: 20px;
+        }
+        #jian,
+        #jia {
+            background-color: #c8c7c8;
+            color: #be3425;
+            font-weight: 700;
+        }
+        #jian {
+            border-radius: 10px 0 0 10px;
+
+        }
+        #jia {
+            border-radius: 0 10px 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id='app'>
+        <div id='jian' @click='jian'>-</div>
+        <div id='num'>{{num}}</div>
+        <div id='jia' @click='jia'>+</div>
+    </div>
+    <!-- 导入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                num: 1
+            },
+            methods:{
+                jian:function() {
+                    if(this.num ==1){
+                        alert('不能再减了!')
+                    } else {
+                        this.num -= 1
+                    } 
+                },
+                jia:function() {
+                    if(this.num ==10){
+                        alert('不能再加了!')
+                    } else {
+                        this.num += 1
+                    } 
+                }
+            } 
+        })
+    </script>
+</body>
+</html>

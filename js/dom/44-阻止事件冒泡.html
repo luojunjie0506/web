@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .father {
+            margin: 200px auto;
+            background-color: blueviolet;
+            height: 200px;
+            width: 200px;
+            text-align: center;
+        }
+        .son {
+            width: 100px;
+            height: 100px;
+            background-color: burlywood;
+            margin: 30px 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        father
+        <div class="son">son儿子</div>
+    </div>
+    <script>
+        // 阻止冒泡 dom推荐的标准 stopPropagation()
+        var son = document.querySelector('.son')
+        son.addEventListener('click',function(e) {
+            alert('son')
+            e.stopPropagation()
+        },false)
+        var father = document.querySelector('.father')
+        father.addEventListener('click',function() {
+            alert('father')
+        },false)
+        document.addEventListener('click',function() {
+            alert('document')
+        })
+    </script>
+</body>
+</html>

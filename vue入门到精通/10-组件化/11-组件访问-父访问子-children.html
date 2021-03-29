@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <h2>{{message}}</h2>
+      <cpn></cpn>
+      <cpn></cpn>
+      <cpn ref="aaa"></cpn>
+      <button @click="btn">按钮</button>
+    </div>
+
+    <template id="cpn">
+      <div>我是子组件</div>
+    </template>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+        },
+        methods: {
+          btn() {
+            // 1.$children可以拿到子组件的列表
+            // console.log(this.$children);
+            // this.$children[0].showMessage();
+            // for (let c of this.$children) {
+            //   c.showMessage();
+            // }
+
+            // 2.$refs 可以拿到子组件的的对象(需要组件加上ref属性)
+            console.log(this.$refs.aaa.name);
+          },
+        },
+        components: {
+          cpn: {
+            template: "#cpn",
+            data() {
+              return {
+                name: "你好",
+              };
+            },
+            methods: {
+              showMessage() {
+                console.log(111);
+              },
+            },
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

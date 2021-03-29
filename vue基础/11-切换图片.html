@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background-color: #cac9ca;
+        }
+        .container {
+            position: relative;
+            padding: 10px;
+            height: 420px;
+            width: 700px;
+            margin: auto;
+            margin-top: 150px;
+            background-color: #fff;
+        }
+        .img {
+            width: 700px;
+            height: 420px;
+        }
+        .logo {
+            float: left;
+            width: 180px;
+            height: 60px;
+            margin-right: 10px;
+        }
+        h2 {
+            float: left;
+            display: block;
+        }
+        .title {
+            position: absolute;
+            top: -60px;
+            left: 0;
+            width: 450px;
+            height: 60px;
+            background-color: #fff;
+        }
+        .title span {
+            position: absolute;
+            top: 0;
+            right: 0;
+            border: 30px solid transparent;
+            border-top-color:#cac9ca; 
+            border-right-color:#cac9ca;
+        }
+        a {
+            position: absolute;
+            top: 50%;
+            text-decoration: none;
+            color: #fff;
+            display: block;
+            height: 50px;
+            width: 25px;
+            font-size: 30px;
+            line-height: 50px;
+            text-align: center;
+            background: rgba(0, 0,0, 0.5);
+        }
+        .right {
+            right: 10px;
+        }
+        .left {
+            left: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container" id='app'>
+        <div class="title">
+            <img src="logo.jpg" alt="" class="logo">
+            <h2>骆俊杰</h2>
+            <span></span>
+        </div>
+        <img :src="imgArr[index]" alt="" class="img">
+        <a href="javascript:;" class='left' @click='zuo' v-show='index!=0'><</a>
+        <a href="javascript:;" class='right' @click='you' v-show='index<imgArr.length-1'>></a>
+    </div>
+    <!-- 导入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgArr:['1.jpg','2.jpg','22.jpg','111.jpg','222.jpg','logo.jpg'],
+                index:0,
+                isShow:false
+            },
+            methods:{
+                zuo:function(){
+                    this.index --
+                },
+                you:function(){
+                    this.index ++
+                }
+            }
+        })
+    </script>
+</body>
+</html>

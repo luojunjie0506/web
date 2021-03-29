@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="../shop/font/iconfont.css">
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        h3{
+            text-align: center;
+            font-weight: 400;
+            margin: 100px auto 50px;
+        }
+        .box {
+            width: 1000px;
+            height: 400px;
+            margin: 0 auto;
+            border: 1px solid #ffe6d1;
+        }
+        .fisrtnav {
+            position: relative;
+            width: 100%;
+            height: 50px;
+            border-bottom: 1px solid #d2d3d2;
+        }
+        .fisrtnav li {
+            position: relative;
+            float: left;
+            width: 100px;
+            list-style: none;
+            border-right: 1px solid #d2d3d2;
+        }
+        li span {
+            float: left;
+        }
+        li span:first-child {
+            width: 100%;
+            height: 100%;
+            text-align: center;
+            line-height: 50px;
+        }
+        li span:last-child {
+            position: absolute;
+            top: 0;
+            right: 0;
+            display: block;
+            width: 15px;
+            height: 15px;
+            line-height: 15px;
+            text-align: right;
+            font-size: 5px;
+            background-color: #000;
+            color: #fff;
+            border-bottom-left-radius: 15px;
+        }
+        .tabadd span {
+            position: absolute;
+            top: 50%;
+            right: 12px;
+            margin-top: -12px;
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            line-height: 24px;
+            text-align: center;
+            border: 1px solid #d2d3d2;
+            font-size: 20px;
+        }
+        .liactive {
+            border-bottom: 1px solid #fff;
+        }
+        section {
+            display: none;
+        }
+        .conactive {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <h3>
+        JS面向对象 动态添加标签页
+    </h3>
+    <div class="box" id="tab">
+        <nav class="fisrtnav">
+            <ul>
+                <li class="liactive">
+                    <span>测试1</span>
+                    <span class="iconfont icon-close"></span>
+                </li>
+                <li>
+                    <span>测试2</span>
+                    <span class="iconfont icon-close"></span>
+                </li>
+            </ul>
+            <div class="tabadd">
+                <span>+</span>
+            </div>
+        </nav>
+        <div class="tabscon">
+            <section class="conactive">测试1</section>
+            <section>测试2</section>
+        </div>
+    </div>
+    <script src="js/tabnav.js"></script>
+</body>
+</html>

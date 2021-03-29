@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        .nav {
+            width: 850px;
+            height: 80px;
+            background-color: blue;
+            margin: 100px auto;
+            padding-left: 8px;
+            line-height: 80px;
+        }
+        ul {
+            height: 100%;
+            width: 100%;
+        }
+        li {
+            float: left;
+            width: 69px;
+            height: 69px;
+            list-style: none;
+            margin-left: 10px;
+        }
+        a {
+            position: relative;
+        }
+        .small {
+            position: absolute;
+            top: 0;
+            left: 0;
+            height: 69px;
+            width: 69px;
+            border-radius: 5px;
+        }
+        .big {
+            display: none;
+            width: 224px;
+        }
+        .current {
+            width: 224px;
+        }
+        .current .small {
+            display: none;
+        } 
+        .current .big {
+            display: block;
+        } 
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <ul>
+            <li class="current">
+                <a href="#">
+                    <img src="img/wz1.jpg" alt="" class="small">
+                    <img src="img/wz1.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/wz2.jpg" alt="" class="small">
+                    <img src="img/wz2.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/wz3.jpg" alt="" class="small">
+                    <img src="img/wz3.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/wz4.jpg" alt="" class="small">
+                    <img src="img/wz4.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/wz5.jpg" alt="" class="small">
+                    <img src="img/wz5.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/wz6.jpg" alt="" class="small">
+                    <img src="img/wz6.png" alt="" class="big">
+                </a>
+            </li>
+            <li>
+                <a href="#">
+                    <img src="img/wz7.jpg" alt="" class="small">
+                    <img src="img/wz7.png" alt="" class="big">
+                </a>
+            </li>
+        </ul>
+    </div>
+    <script>
+        $(function() {
+            $('li').mouseover(function() {
+                $(this).stop().animate({
+                    width:224,
+                }).find('.small').stop().fadeOut().siblings('.big').stop().fadeIn();
+                $(this).siblings('li').stop().animate({
+                    width:69,
+                }).find('.small').stop().fadeIn().siblings('.big').stop().fadeOut();
+            })
+        })
+    </script>
+</body>
+</html>

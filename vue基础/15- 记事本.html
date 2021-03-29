@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: #f5f4f6;
+        }
+        h1 {
+            color:#c76359;
+            font-size: 50px;
+            font-weight: 400;
+            margin-bottom: 20px;
+        }
+        #todoapp {
+            width: 400px;
+            margin: auto;
+            margin-top: 100px;
+        }
+        h1 {
+            text-align: center;
+        }
+        .new-todo {
+            width: 400px;
+            height: 40px;
+            border: 1px solid #dedddf;
+            font-size: 20px;
+            padding-left: 10px;
+            color: #757575;
+        }
+        .main {
+            width: 410px;
+            border: 1px solid #dedddf;
+            color: #757575;
+            background-color: #fff;
+            border-bottom: 0;
+            border-top: 0;
+        }
+        li {
+            position: relative;
+            list-style: none;
+            height: 40px;
+            padding-left: 15px;
+            line-height: 40px;
+            border-bottom: 1px solid #dedddf;
+        }
+        li span {
+            position: absolute;
+            top: 0;
+            right: 20px;
+            font-size: 5px;
+            display: none;
+        }
+        .footer {
+            position: relative;
+            width: 410px;
+            height: 30px;
+            background-color: #fff;
+            border: 1px solid #dedddf;
+            color: #8d8d93;
+            font-size: 13px;
+            line-height: 30px;
+        }
+        .fileNum,
+        .clear {
+            position: absolute;
+        }
+        .fileNum {
+            left: 10px;
+        }
+        .clear {
+            right: 10px;
+        }
+        li:hover span {
+            display: block;
+        }
+    </style>
+</head>
+<body>
+    <div id="todoapp">
+        <div class="header">
+            <h1>记事本</h1>
+            <input type="text" name="" id="" class='new-todo' placeholder="请输入任务" v-model='message' @keyup.enter='add'>
+        </div>
+        <div class="main">
+            <ul>
+                <li v-for='(item,index) in arr'>
+                    {{index+1}}:           {{item}}
+                    <span @click='del(index)'>x</span>
+                </li>
+            </ul>
+        </div>
+        <div class="footer" v-show='arr.length>0'>
+            <span class='fileNum'>{{arr.length}} items </span>
+            <span class="clear" @click='clear'>Clear</span>
+        </div>      
+    </div>
+    <!-- 导入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#todoapp',
+            data:{
+                message:'',
+                arr:[]
+            },
+            methods:{
+                add:function() {
+                    if(this.message =='') {
+                        alert('不能为空!')
+                    } else {
+                        this.arr.push(this.message)
+                        this.message =''
+                    }
+                },
+                clear:function() {
+                    this.arr = []
+                },
+                del:function(q1) {
+                    this.arr.splice(q1,1)
+                }
+            }
+        })
+    </script>
+</body>
+</html>

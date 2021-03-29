@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #result {
+            width: 200px;
+            height: 100px;
+            border: solid 1px #90b;
+        }
+    </style>
+</head>
+<body>
+    <button id='btn'>点击发送请求</button>
+    <div id="result"></div>
+    <script>
+        var btn = document.getElementById('btn')
+        var result = document.getElementById('result')
+        btn.onclick = function() {
+            // 1.创建ajax对象
+            var xhr = new XMLHttpRequest()
+            // 设置2s超时
+            xhr.timeout = 2000
+            // 超时回调
+            xhr.ontimeout = function() {
+                alert('网络异常')
+            }
+            // 网络异常回调
+            xhr.onerror = function() {
+                alert('522')
+            }
+            // 2.初始化 设置请求方法和地址
+            xhr.open('GET','http://localhost:8000/delay')
+            // 3.发送
+            xhr.send()
+            // 4.事件绑定 处理服务器返回的结果
+            xhr.onload = function() {
+                if(xhr.status >=200 && xhr.status < 300) {
+                    // 处理结果
+                    result.innerHTML = xhr.responseText
+                } else {
+
+                }
+            }
+        }
+    </script>
+</body>
+</html>

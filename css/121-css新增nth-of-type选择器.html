@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		/*section div:nth-of-type权重为12*/
+		ul li:nth-of-type(even){
+			background-color: skyblue;
+		}
+/*		nth-child 会把所有的子元素排序号，执行时首先执行net-child(1),之后再匹配div，因为第一个子元素<p>光头强</p>是p，不是div，所以没有匹配上的元素
+		section div:nth-child(1) {
+			background-color: red;
+		}*/
+		/*nth-child 会把所有的子元素排序号，执行时首先匹配div,再匹配net-child(1)，因为<div>熊大</div>是div中的第一个，所以匹配成功*/	
+		section div:nth-of-type(1) {
+			background-color: red;}
+	</style>
+</head>
+<body>
+	<ul>
+		<li>我是第1个孩子</li>
+		<li>我是第2个孩子</li>
+		<li>我是第3个孩子</li>
+		<li>我是第4个孩子</li>
+		<li>我是第5个孩子</li>
+		<li>我是第6个孩子</li>
+		<li>我是第7个孩子</li>
+		<li>我是第8个孩子</li>
+		<li>我是第9个孩子</li>
+	</ul>
+	<!-- nth-chile 和nth-of-type的区别 -->
+	<section>
+		<p>光头强</p>
+		<div>熊大</div>
+		<div>熊二</div>
+	</section>
+</body>
+</html>

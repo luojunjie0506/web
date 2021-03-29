@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .nav {
+            width: 300px;
+            height: 300px;
+            border: 1px solid red;
+            margin: 100px auto;
+        }
+        .zuo {
+            float: left;
+            width: 50px;
+            height: 100%;
+            text-align: center;
+        } 
+        ul {
+        }
+        li {
+            height: 28px;
+            width: 50px;
+            line-height: 30px;
+            list-style: none;
+            border: 1px solid rgb(248, 134, 153);
+        }
+        .you {
+            position: relative;
+            float: left;
+            width: 250px;
+            height: 100%;
+        }
+        .you img {
+            position: absolute;
+            left: 0;
+            top: 0;
+            margin-left: 2px;
+            width: 248px;
+            height: 300px;
+        }
+    </style>
+</head>
+<body>
+    <div class="nav">
+        <div class="zuo">
+            <ul>
+                <li>1</li>
+                <li>2</li>
+                <li>3</li>
+                <li>4</li>
+                <li>5</li>
+                <li>6</li>
+                <li>7</li>
+                <li>8</li>
+                <li>9</li>
+                <li>10</li>
+            </ul>
+        </div>
+        <div class="you">
+            <div><a href="#"><img  src="img/1.jpg"></a></div>
+            <div><a href="#"><img  src="img/2.jpg"></a></div>
+            <div><a href="#"><img  src="img/3.jpg"></a></div>
+            <div><a href="#"><img  src="img/4.jpg"></a></div>
+            <div><a href="#"><img  src="img/5.jpg"></a></div>
+            <div><a href="#"><img  src="img/6.jpg"></a></div>
+            <div><a href="#"><img  src="img/7.jpg"></a></div>
+            <div><a href="#"><img  src="img/8.jpg"></a></div>
+            <div><a href="#"><img  src="img/9.jpg"></a></div>
+            <div><a href="#"><img  src="img/10.jpg"></a></div>
+        </div>
+    </div>
+    <script>
+        $(function() {
+            $('.zuo li').mouseover(function() {
+                $(this).css('background-color','red').siblings('li').css('background-color','')
+                var index = $(this).index()
+                $('.you img').hide().eq(index).show()
+            })
+        })
+    </script>
+</body>
+</html>

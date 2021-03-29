@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button>点击</button>
+    <script>
+        // 用全局变量that存储实例对象this解决方法中的this指向问题
+        var that 
+        // 1.在ES6中,必须要先定义类后才能实例化对象
+        // 2.类里面公有的属性和方法在使用时一定要加this 例如下面uname 和 sing()
+        class star {
+            // constructor里面的this指向实例对象,方法里面的this指向调用该方法的人
+            constructor(uname,age) {
+                that = this
+                this.uname = uname
+                this.age = age
+                // this.sing()
+                this.btn = document.querySelector('button')
+                // sing不用加小括号,加了就会立即调用
+                this.btn.onclick = that.sing // 因为this.sing中的this指向的是btn,btn中没有sing这个方法,所以就不能输出
+            }
+            sing() {
+                // 因为btn调用了这个方法,所以this.uname中的this指向的是btn,btn中没有uname这个方法,所以就不能输出
+                console.log(that.uname + 'hi');
+            }
+        }
+        var ldh = new star('刘德华')
+    </script>
+</body>
+</html>

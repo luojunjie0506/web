@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .w {
+            width: 1200px;
+            margin: 0 auto;
+        }
+        header {
+            height: 200px;
+            background-color: pink;
+        }
+        .banner {
+            height: 300px;
+            background-color: skyblue;
+            margin-top: 10px;
+        }
+        .page {
+            height: 800px;
+            background-color: yellow;
+            margin-top: 10px;
+        }
+        footer {
+            height: 200px;
+            background-color: green;
+            margin-top: 10px;
+        }
+        .you_nav {
+            position: absolute;
+            top: 400px;
+            left: 50%;
+            margin-left: 600px;
+            height: 120px;
+            width: 50px;
+            background-color:khaki;
+        }
+        .back {
+            display: none;
+            position: absolute;
+            bottom: 0;
+        }
+    </style>
+</head>
+<body>
+    <div class="w">
+        <header>
+            顶部
+        </header>
+        <div class="banner">
+            banner区域
+        </div>
+        <div class="page">
+            主体
+        </div>
+        <footer>
+            尾部
+        </footer>
+    </div>
+    <div class="you_nav">
+        <span class="back">顶部</span>
+    </div>
+    <script>
+        // 页面被卷去的头部可以通过window.pageYoffset获得,被卷去的左侧可以用window.pageXoffset获得
+        // 元素被卷去的头部可以通过元素.scrollTop获得,被卷去的左侧可以用元素.scrollLeft获得
+        var nav = document.querySelector('.you_nav')
+        var back = document.querySelector('.back')
+        var banner = document.querySelector('.banner')
+        var top_num = nav.offsetTop - banner.offsetTop
+        var num = banner.offsetTop
+        document.addEventListener('scroll',function() {
+            // banner.offsetTop就是被卷去头部的大小 一定要写到滚
+            if(window.pageYOffset <= num) {
+                nav.style.position = 'absolute'
+                nav.style.top = '400px'
+                back.style.display = 'none'
+            } else {
+                nav.style.position = 'fixed'
+                nav.style.top = top_num + 'px'
+                back.style.display = 'block'
+            }
+        })
+        // 点击返回按钮能跳转到顶部
+        back.addEventListener('click',function() {
+            animate(window,0)
+        })
+
+        function animate(obj, target, callback) {
+    // callback因为实参是函数，所以调用的时候要写成callback()
+    // callback是一个回调函数，所以要写在清除定时器后面 
+    clearInterval(obj.timer)
+    obj.timer = setInterval(function() {
+            // 缓动步长公式 (目标值-现在位置)/10
+            // 步长网上取整，这样才能到终点
+            // var step = Math.ceil((target - obj.offsetLeft) /10)
+            var step = (target - window.pageYOffset) /10
+            step = step >0 ? Math.ceil(step):Math.floor(step)
+            if(obj.pageYOffset == target) {
+                clearInterval(obj.timer)
+                // 判断是否存在回调函数
+                if(callback) {
+                    callback()
+                }
+            }
+            window.scroll(0, window.pageYOffset + step)
+        },15);
+    }   
+    </script>
+</body>
+</html>

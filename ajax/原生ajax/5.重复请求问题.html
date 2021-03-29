@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='s'>点击发送</button>
+    <button id='q'>点击取消</button>
+    <script>
+        var s = document.getElementById('s')
+        var q = document.getElementById('q')
+        var xhr = null
+        // 标示变量
+        var bs = false
+        s.onclick = function() {
+            if(bs){
+                xhr.abort()
+            }
+            bs = true
+            xhr = new XMLHttpRequest()
+            xhr.open('GET','http://localhost:8000/quxiao')
+            xhr.send()
+            xhr.onload = function() {
+                console.log(xhr.responseText);
+                bs = false
+            }
+
+        }
+        q.onclick = function() {
+            // 取消发送 
+            xhr.abort()
+        }
+    </script>
+</body>
+</html>

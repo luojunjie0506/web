@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .active {
+            border: 1px solid red;
+        }
+    </style>
+</head>
+<body>
+    <div id="app">
+        <!-- <img v-bind:src="imgSrc" alt=""> -->
+        <!-- 简写成:src -->
+        <!-- <img :src="imgSrc" alt="" :title="imgTitle+'你好啊'" :class="isActive?'active':''" @click='toggleActive'> -->
+        <img :src="imgSrc" alt="" :title="imgTitle+'你好啊'" :class="{active:isActive}" @click='toggleActive'>
+    </div>
+    <!-- 导入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        var app = new Vue({
+            el:'#app',
+            data:{
+                imgSrc:'https://goss1.cfp.cn/creative/vcg/800/new/VCG211187794571.jpg',
+                imgTitle:'大壁灯',
+                isActive:false
+            },
+            methods: {
+                toggleActive:function() {
+                    this.isActive = !this.isActive
+                }
+            }
+        })
+    </script>
+</body>
+</html>

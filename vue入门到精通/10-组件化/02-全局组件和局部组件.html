@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <cpn></cpn>
+      <cpn></cpn>
+      <cpn></cpn>
+    </div>
+
+    <div id="app2">
+      <cpn></cpn>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+      const cpnC = Vue.extend({
+        template: `
+          <div>
+            <h2>完事</h2>
+            <p>牛逼</p>
+          </div>
+        `,
+      });
+      // 注册组件(全局组件,可以在多个vue的实例中使用)
+      // Vue.component("cpn", cpnC);
+
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+        },
+        // 注册组件(局部组件,在new Vue中注册的组件只能在该实例中使用)
+        components: {
+          cpn: cpnC,
+        },
+      });
+
+      const app2 = new Vue({
+        el: "#app2",
+        data: {
+          message: "hah",
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id='app'>
+        <!-- 那个属性要变成动态的就在属性前面加上v-bind:或者直接加上:-->
+        <!-- : 等同于 v-bind: -->
+        <img v-bind:src="imgUrl" alt="" srcset="">
+        <a v-bind:href="aHref"></a>
+    </div>
+     
+    <script src='../vue.js'></script>
+    <script>
+        const app = new Vue ({
+            el: '#app',
+            data : {
+                message: 'hah' ,
+                imgUrl:'https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=3363295869,2467511306&fm=26&gp=0.jpg',
+                aHref:'http://www.baidu.com'
+            }
+        });
+    </script>
+</body>
+</html>

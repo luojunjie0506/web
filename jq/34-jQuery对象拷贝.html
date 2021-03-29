@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+            // var targetObj = {}
+            // var obj = {
+            //     id:1,
+            //     name:'andy'
+            // }
+            // // $.extend(target,obj) 把obj复制给target
+            // $.extend(targetObj,obj)
+            // console.log(targetObj)
+
+            // // 会覆盖掉targetObj1里冲突的数据
+            // var targetObj1 = {
+            //     id:0
+            // }
+            // $.extend(targetObj1,obj)
+            // console.log(targetObj1)
+
+            // var targetObj2 = {
+            //     age:2
+            // }
+            // $.extend(targetObj2,obj)
+            // console.log(targetObj2)
+
+            // 拷贝$.extend(target,obj)总结
+            // 1.如果target,obj 只有数据不冲突,那target就会存在这数据
+            // 2.如果target,obj都存在同种数据,那target数据内容就会显示obj的数据内容
+
+            // 浅拷贝会把原来对象里面的复杂数据类型(如下msg)地址拷贝给目标对象,因为是复制的是地址,所以msg对象有只有age的数据,如果修改这个复杂数据,那原来的对象和目标对象的值都会改变
+            var targetObj = {
+                id:0,
+                msg: {
+                    sex:'男'
+                }
+            }
+            var obj = {
+                id:1,
+                name:'andy',
+                msg: {
+                    age:18
+                }
+            }
+            // $.extend(targetObj,obj)
+            // targetObj.msg.age = 20
+            // console.log(obj)
+
+            // 深拷贝把里面的数据完全复制一份给目标对象,因为是数据不是地址,所以复杂数据里没有冲突的数据也会合并到一起
+            $.extend(true,targetObj,obj)
+            targetObj.msg.age = 20
+            console.log(targetObj)
+            console.log(obj)
+        })
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      {{message}}
+      <cpn @jianclick="changeTotal" @jiaclick="changeTotal"></cpn>
+    </div>
+
+    <template id="cpn">
+      <div>
+        <button @click="jian">-</button>
+        <button @click="jia">+</button>
+      </div>
+    </template>
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: 1,
+        },
+        components: {
+          cpn: {
+            template: "#cpn",
+            data() {
+              return {
+                num: 1,
+              };
+            },
+            methods: {
+              jian() {
+                this.num--;
+                this.$emit("jianclick", this.num);
+              },
+              jia() {
+                this.num++;
+                this.$emit("jiaclick", this.num);
+              },
+            },
+          },
+        },
+        methods: {
+          changeTotal(item) {
+            this.message = item;
+          },
+        },
+      });
+    </script>
+  </body>
+</html>

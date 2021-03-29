@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <div id="app">
+      <!-- 1.修饰符:lazy -->
+      <!-- 只有在失去焦点或按回车的时候才会更新数据 -->
+      <input type="text" v-model.lazy="message" />
+      <h2>{{message}}</h2>
+
+      <!-- 2.修饰符:number -->
+      <!-- 让绑定的数据永远都是数字类型 -->
+      <input type="number" v-model.number="age" />
+      <h2>{{age}}</h2>
+
+      <!-- 3.修饰符:trim -->
+      <!-- 会清除最前面和最后面的空格 -->
+      <input type="text" name="" id="" v-model.trim="name" />
+      <h2>{{name}}</h2>
+    </div>
+
+    <script src="../vue.js"></script>
+    <script>
+      const app = new Vue({
+        el: "#app",
+        data: {
+          message: "hah",
+          age: 22,
+          name: "",
+        },
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <button id='kd'>开灯</button>
+    <button id='gd'>关灯</button><br>
+    <img src="image/eg_bulbon.gif" alt="" title="开灯">
+
+    <script>
+        //1.获取元素
+        var kd = document.getElementById('kd')
+        var gd = document.getElementById('gd')
+        var img = document.querySelector('img')
+        //2.注册事件 处理程序
+        kd.onclick = function() {
+            img.src = 'image/eg_bulbon.gif'
+            img.title="开灯"
+        }
+        gd.onclick = function() {
+            img.src = 'image/eg_bulboff.gif'
+            img.title="关灯"
+        }
+    </script>
+</body>
+</html>

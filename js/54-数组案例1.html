@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var arr = [2,0,6,1,77,0,52,0,25,7] 
+        var arr1 = []
+        // 方法一
+        // var b = 0
+        // for (var i = 0 ; i < arr.length ; i++) {
+        //     if (arr[i] >= 10  ) {
+        //         arr1[b] = arr[i]
+        //         b++
+        //     }
+        // }
+        // 方法二
+        for (var i = 0 ; i < arr.length ; i++) {
+            if (arr[i] >= 10  ) {
+                arr1[arr1.length] = arr[i]
+            }
+        }
+        alert(arr1)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

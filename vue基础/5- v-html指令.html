@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <p v-html='content'></p>
+        <p v-text='content'></p>
+        <p v-html='url'></p>
+        <p v-text='url'></p>
+    </div>
+    <!-- 导入vue -->
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        // v-text解析结果是文本 v-html如果data是标签则会解析会html标签
+        var app = new Vue({
+            el:'#app',
+            data:{
+                content:'我叫骆俊杰',
+                url:'<a href="http://www.baidu.com">aaa</a>'
+            }
+        })
+    </script>
+</body>
+</html>

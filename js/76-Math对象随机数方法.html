@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // random() 返回一个大于等于0且小于1的浮点数
+        // 两个数之间的随机整数并且包含这两个整数
+        // Math.floor(Math.random() * (max-min+1) + min)
+        function getRandom1(min,max) {
+            return Math.floor(Math.random() * (max-min+1) + min)
+        }
+        // 两个数之间的随机整数并且包前不包后
+        // Math.floor(Math.random() * (max-min) + min)
+        function getRandom2(min,max) {
+            return Math.floor(Math.random() * (max-min) + min)
+        }
+
+        //随机点名
+        var arr = ['骆俊杰','拉了拉','订单的','大石大石','大苏打']
+
+        console.log(arr[getRandom2(1,arr.length)])
+
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

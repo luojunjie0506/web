@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		/*如果行内元素设置了浮动，则不需要转换块级/行内块就可以直接给宽度和高度*/
+		/*元素只要设置了浮动，都会有行内块元素特性*/
+		span,div {
+			float: left;
+			width: 200px;
+			height: 100px;
+			background-color: pink;
+		}
+		p {
+			background-color:skyblue;
+			height: 300px;
+		}
+	</style>
+</head>
+<body>
+	<span>
+		1
+	</span>
+	<span>
+		2
+	</span>
+	<div>
+		div
+	</div>
+	<p></p>
+</body>
+</html>

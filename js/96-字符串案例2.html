@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        var str = 'abaasdffggghhjjkkgfddssss3444343'
+        console.log(str.length)
+        console.log(str[0],str[3],str[5],str[9])
+        if(str.indexOf('i') !== -1) {
+            console.log('存在i')
+        }
+        if(str.indexOf('b') !== -1) {
+            console.log('存在b')
+        }
+        if(str.indexOf('c') !== -1) {
+            console.log('存在c')
+        }
+        while(str.indexOf('g') !== -1) {
+            str = str.replace('g','22')
+        }
+        console.log(str)
+        while(str.indexOf('ss') !== -1) {
+            str = str.replace('ss','b')
+        }
+        console.log(str)
+        console.log(str.substr('1','5'))
+        var o = {}
+        for(var i=0; i<str.length; i++) {
+            if(o[str[i]]) {
+                o[str[i]]++
+            } else {
+                o[str[i]] = 1
+            }
+        }
+        var max = 0
+        var ch
+        for(var k in o) {
+            if(o[k] > max) {
+                max = o[k]
+                ch = k
+            }
+        }
+        console.log(max,ch)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>
