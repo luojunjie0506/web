@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .shan {
+            position: relative;
+            height: 157px;
+            background: url(image/bg1.png) no-repeat;
+            margin: 100px auto;
+            animation: shan-move 10s linear infinite forwards;
+        }
+        /* 元素可以添加多个动画用，间隔 */
+        .beer {
+            position: absolute;
+            top: 50px;
+            width: 200px;
+            height: 100px;
+            background: url(image/bear.png) no-repeat;
+            animation: move 1s steps(8) infinite, wz 5s forwards;
+        }
+        @keyframes shan-move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -360px 0;
+            }
+        }
+        @keyframes move {
+            0% {
+                background-position: 0 0;
+            }
+            100% {
+                background-position: -1600px 0;
+            }
+        }
+        @keyframes wz {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 50%;
+                transform: translate(-50%,0);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="shan">
+        <div class="beer">
+
+        </div>
+    </div>
+</body>
+</html>

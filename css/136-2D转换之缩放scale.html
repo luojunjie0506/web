@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: pink;
+            margin: 100px auto;
+            transform-origin: left bottom;
+        }
+        div:hover {
+            /* 1.参数不跟单位,如果1就是1倍,2就是两倍。前宽后高 */
+            /* transform: scale(2,2); */
+            /* 2.同时修改相同的宽高时，可以简写一个参数,小于1的话就是缩放，大于1就是放大*/
+            transform: scale(2);
+            /* scale缩放时不会影响其他盒子,还可以设置中心点 */
+        }
+    </style>
+</head>
+<body>
+    <div>
+    </div>
+    阿实打实的
+</body>
+</html>

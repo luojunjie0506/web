@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style type="text/css">
+		/*必须是input且带有value属性的样式才会被生效*/
+		/*		input[value] {
+					color: pink;
+					}*/
+/*		只选择type="text"的元素
+		input[type="text"] {
+			color: pink;
+			}*/
+			/*只选择class以icon开头的元素*/
+			div[class^=icon] {
+				color: pink;
+			}
+			/*只选择class以data结尾的元素*/
+			section[class$=data] {
+				color: blue;
+			}
+		</style>
+	</head>
+	<body>
+		<!-- 1.利用属性选择器就可以不借助于类或者id选择器 -->
+			<!-- 	<input type="text" name="" id="" value="请输入用户名">
+			<input type="text" name="" id="">	 -->	
+		<!-- 2.属性选择器还可以选择属性=值的某些元素 -->
+			<!-- 	<input type="text" name="" id="" value="asdasd">
+			<input type="password" name="" id="" value="asdasd">	 -->
+		<!-- 3.属性选择器可以选择属性值开头的某些元素 -->
+			<div class="icon1">1</div>
+			<div class="icon2">2</div>
+			<div class="icon3">3</div>
+			<div class="icon4">4</div>
+		<!-- 属性选择器可以选择属性值结尾的某些元素 -->
+			<section class="icon1-data">dasdasd</section>
+			<section class="icon2-data">6654</section>
+			<section class="icon3-ico">额外热我饿</section>
+	</body>
+</html>

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title></title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="css/style.css" rel="stylesheet">
+        <style>
+            /* from和to 等价于0% 和 100%  */
+            /* @keyframes mover {
+                from {
+                    transform: translate(0,0);
+                }
+                to {
+                    transform: translateX(100px);
+                }
+            } */
+            @keyframes move {
+                0% {
+                    transform: translate(0,0);
+                }
+                25% {
+                    transform: translate(500px,0);
+                }
+                50% {
+                    transform: translate(500px,500px);
+                }
+                75% {
+                    transform: translate(0,500px);
+                }
+                100% {
+                    transform: translate(0,0);
+                }
+            }
+            div {
+                height: 100px;
+                width: 100px;
+                background-color: orange;
+                animation-name: move;
+                animation-duration: 5s;
+            }
+        </style>
+    </head>
+    <body>
+        <div></div>
+    </body>
+</html>
