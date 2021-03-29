@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        textarea {
+            resize: none;
+        }
+        .ly {
+            background-color: pink;
+            width: 400px;
+        }
+        li {
+            list-style: none;
+        }
+        li a {
+            float: right;
+            color: grey;
+            text-decoration: none;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <div class="ipt">
+            <textarea name="" id="" cols="30" rows="10"></textarea>
+            <button>发布</button>
+        </div>
+        <div class="ly">
+            <ul></ul>
+        </div>
+    </div>
+    <script>
+        var btn = document.querySelector('button')
+        var text = document.querySelector('textarea')
+        var ul = document.querySelector('ul')
+        btn.onclick = function() {
+            var li = document.createElement('li')
+            if(text.value !=='') { 
+                // a中的href值为javascript:; 可以让链接不跳转 
+                // 给li中加一个删除按钮
+                li.innerHTML = text.value + "<a href='javascript:;'>删除</a>"
+                ul.insertBefore(li,ul.children[0])
+                text.value = ''
+
+                //删除元素 删除当前点击的li
+                var lj = document.querySelectorAll('a')
+                for(var i=0; i<lj.length; i++) {
+                    lj[i].onclick = function() {
+                        ul.removeChild(this.parentNode)
+                    }
+                }
+            } else {
+                alert('不能为空 ')
+                return false
+            }
+            
+
+        }
+
+    </script>
+</body>
+</html>

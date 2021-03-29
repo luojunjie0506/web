@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            background: url(image/bz2.jpg) no-repeat ;
+        }
+        div {
+            width: 400px;
+            height: 80px;
+            margin: 100px auto;
+        }
+        li {
+            float: left;
+            list-style: none;
+            height: 80px;
+            width: 80px;
+            background-color: wheat;
+        }
+        li img {
+            width: 80px;
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <ul>
+            <li>
+                <img src="image/bz2.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/bz4.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/bz5.jpg" alt="">
+            </li>
+            <li>
+                <img src="image/bz6.jpg" alt="">
+            </li>
+        </ul>
+    </div>
+    <script>
+        //body可以直接通过document.body获取
+        var img = document.querySelector('ul').querySelectorAll('img')
+        for(var i=0; i<img.length; i++) {
+            img[i].onclick = function() {
+                console.log(this.src)
+                document.body.style.backgroundImage = 'url(' + this.src + ')'
+            }
+        }
+    </script>
+</body>
+</html>

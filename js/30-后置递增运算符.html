@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        // 前置自增和后置自增单独使用时效果都一样
+        // 口诀：
+        //     前置自增：先自加1后返回值
+        var a = 10 
+        console.log(++a + 1)
+        //     后置自增：先返原值后加1
+        var age = 50
+        console.log(age++ + 1)
+        console.log(age)
+
+        // 注意点
+        var e = 10
+        // e++计算为10后e变成了11，++e为12，所以最后结果为22
+        var f = e++ + ++e 
+        console.log(f)
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div class="">我是div</div>
+    <span>我的span</span>
+    <ul>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+        <li>我是li</li>
+    </ul>
+    <div class="demo">
+        <div class="box">
+            <span class="erweima">x</span>
+        </div> 
+    </div>
+   
+    <script>
+        // DOM提供的方法获取li
+        var ul = document.querySelector('ul')
+        var li = ul.querySelectorAll('li')
+
+        // 1.子节点 childNodes 所有的子节点 包含元素节点,文本节点(空格，换行)等等
+        // console.log(ul.childNodes)
+        // 通过循环获取元素节点,不包含文本节点。元素节点的nodeType是1
+        for(var i=0; i<ul.childNodes.length; i++) {
+            if(ul.childNodes[i].nodeType == 1 ) {
+                // ul.childNodes[i] 是元素点
+                console.log(ul.childNodes[i])
+            }
+        }
+
+        // 2.children获取所有的子元素节点,常用
+        console.log(ul.children);
+
+    </script>   
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ol>
+        <li>我是li1</li>
+        <li>我是li2</li>
+        <li>我是li3</li>
+        <li>我是li4</li>
+    </ol>
+    <script>
+        var ol = document.querySelector('ol')
+        //firstChild 第一个子节点 不管是文本还是元素节点
+        //lastChild 最后一个子节点 不管是文本还是元素节点
+        console.log(ol.firstChild)
+        console.log(ol.lastChild)
+
+        // firstElementChild 返回第一个子元素节点
+        // lastElementChild 返回第一个子元素节点
+        // 存在兼容性问题
+        console.log(ol.firstElementChild)
+        console.log(ol.lastElementChild)
+
+        // 实际开发写法
+        // 第一个子元素
+        console.log(ol.children[0])
+        // 最后一个子元素
+        console.log(ol.children[ol.children.length-1])
+    </script>
+</body>
+</html>

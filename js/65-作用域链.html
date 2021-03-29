@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        //作用域链：内部函数访问外部函数的变量，采取的是链式查找，这种结构叫做作用域链
+        var num = 10
+        function fn() {
+            var num = 20
+            function fn1() {
+                //内部函数可以调用外部函数变量
+                console.log(num)
+            }
+            fn1()
+        }
+        fn()
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

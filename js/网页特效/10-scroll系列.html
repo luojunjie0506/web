@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            width: 200px;
+            height: 200px;
+            background-color: aqua;
+            border: 10px solid red;
+            padding: 20px;
+            overflow: auto;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容我是内容
+    </div>
+    <script>
+        // scroll系列 也是返回不带边框的值,没有单位(可以带padding)
+        var div = document.querySelector('div')
+        // scrollHeight返回的是实际的宽度                                                    
+        console.log(div.scrollHeight);
+        // clientHeight返回的是可看到的宽度
+        console.log(div.clientHeight);
+        // scroll滚动事件,滚动条滚动就会触发该事件
+        div.addEventListener('scroll',function() {
+            // scrollTop 被卷去的上侧大小
+            console.log(div.scrollTop);
+        })
+    </script>
+</body>
+</html>

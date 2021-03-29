@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li>123</li>
+    </ul>
+    <script>
+        // 1.创建节点-元素节点
+        var ul = document.querySelector('ul')
+        var li = document.createElement('li')
+
+        // 2.添加节点appendChild 在最后面追加
+        ul.appendChild(li)
+
+        // 3.添加节点insertBefore(child,指定元素)
+        var lili = document.createElement('li')
+        ul.insertBefore(lili,ul.children[0])
+
+        //4.添加新元素 
+    </script>
+</body>
+</html>

@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        li {
+            list-style: none;
+        }
+        a {
+            display: inline-block;
+            text-decoration: none;   
+            color: #000;
+            width: 100px;
+            height: 30px;
+            line-height: 30px;
+        }
+        a:hover {
+            background-color: rgb(221, 221, 221);
+        }
+        .nav {
+            margin: 200px 200px;
+            height: 500px;
+        }
+        .nav ul {
+            display: none;
+        }
+        .nav>li {
+            float: left;
+            text-align: center;
+        }
+        .nav>li>ul>li {
+            border: 1px solid #EBBE7A;
+            border-top: 0;
+            width: 98px;
+            height: 50px;
+            text-align: center;
+            line-height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <ul class="nav">
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+        <li>
+            <a href="#">微博</a>
+            <ul>
+                <li>私信</li>
+                <li>评论</li>
+                <li>@我</li>
+            </ul>
+        </li>
+    </ul>
+    <script>
+        var nav = document.querySelector('.nav')
+        var lis = nav.children
+        for(var i=0; i<lis.length; i++){
+            lis[i].onmouseover = function(){
+                this.children[1].style.display = 'block'
+            }
+            lis[i].onmouseout= function(){
+                this.children[1].style.display = 'none'
+            }
+        }
+    </script>
+</body>
+</html>l
