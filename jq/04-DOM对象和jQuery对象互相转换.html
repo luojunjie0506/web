@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="jquery.min.js"></script>
+    <title>Document</title>
+    <style>
+        video {
+            height: 400px;
+            width: 400px;
+        }
+    </style>
+</head>
+<body>
+    <video src="mi.mp4"></video>
+    <script>
+        // 1.dom对象转换为jQuery对象
+        // (1)直接用$获取
+        $('video')
+        // (2)已经使用原始js获取过来的dom对象 $()不用加引号
+        var myVideo = document.querySelector('video')
+        $(myVideo)
+        
+        // 2.jQuery对象转换为DOM对象
+        // $('video')[0].play()
+        $('video').get(0).play()
+    </script>
+</body>
+</html>

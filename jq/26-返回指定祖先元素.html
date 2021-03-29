@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div class="one">
+        <div class="two">
+            <div class="three">
+                <div class="four">我太难了</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        console.log($('.four').parent().parent().parent());
+        //  parents()如果不带参数就返回所有的上级元素，如果带参数就返回指定的上级元素
+        console.log($('.four').parents('.one'))
+    </script>
+</body>
+</html>

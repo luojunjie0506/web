@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <style>
+        div {
+            width: 200px;
+            height: 300px;
+            background-color: pink;
+        }
+    </style>
+</head>
+<body>
+    <button>显示</button>
+    <button>隐藏</button>
+    <button>切换</button>
+    <div></div>
+    <script>
+        $(function() {
+            // 一般情况下show 和hide都不会加参数
+            $('button').eq(1).click(function() {
+                // show([speed,[easing],[fn]]) speed 速度,easing 默认不用填,fn 回调函数
+                $('div').slideUp(1000,function() {
+                    alert(1)
+                })
+            })
+            $('button').eq(0).click(function() {
+                // show([speed,[easing],[fn]]) speed 速度,easing 默认不用填,fn 回调函数
+                $('div').show(1000,function() {
+                    alert(1)
+                })
+            })
+            $('button').eq(2).click(function() {
+                // show([speed,[easing],[fn]]) speed 速度,easing 默认不用填,fn 回调函数
+                $('div').toggle(1000,function() {
+                    alert(1)
+                })
+            })
+        })
+    </script>
+</body>
+</html>

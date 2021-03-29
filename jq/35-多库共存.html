@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+    <script>
+        $(function() {
+            function $(ele) {
+                return document.querySelector(ele)
+            }
+            console.log($('div')) 
+            // 1.如果$符号冲突,就可以使用jQuery
+            console.log(jQuery.each())
+            // 2.还可以让jQuery释放$控制权 jQuery.noConflict() 可以自定义名字
+            var suibian = jQuery.noConflict()
+            console.log(suibian('span'))
+        })
+    </script>
+</head>
+<body>
+    <div>
+        
+    </div>
+    <span></span>
+</body>
+</html>

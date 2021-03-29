@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="jquery.min.js"></script>
+</head>
+<body>
+    <div>1</div>
+    <div>2</div>
+    <div>3</div>
+    <script>
+        $(function() {
+            // 1.each() 方法遍历元素
+            var arr = ['red','green','blue'] 
+            $('div').each(function(index,domEle) {
+                // 回调函数第一个参数一定是索引号 可以自己命名索引号名字
+                console.log(index)
+                // 回调函数第二个参数一定是dom元素对象
+                console.log(domEle) 
+                // 要使用jQuery的方法要转为jQuery对象
+                $(domEle).css('color',arr[index])
+            })
+            // 2.$.each() 方法遍历元素  主要用于遍历数据,处理数据
+            $.each($('div'),function(i,ele) {
+                console.log(i)
+                console.log(ele)
+            })
+            // 处理数组
+            $.each(arr,function(i,ele) {
+                console.log(i)
+                console.log(ele)
+            })
+            // 处理对象
+            $.each({name:'andy',age:18},function(i,ele) {
+                console.log(i)
+                console.log(ele)
+            })
+
+        })
+    </script>
+</body>
+</html>
