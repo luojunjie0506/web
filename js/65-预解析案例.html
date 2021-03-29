@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script>
+        function f1() {
+            var a = b = c =9 //等同于var a=9;b=9;c=9,因为b,c没有加var所以b,c就是全局变量           
+            console.log(a)
+            console.log(b)
+            console.log(c)
+        }
+        f1()
+        console.log(b)
+        console.log(c)
+        console.log(a)
+        // 最后输出为9,9,9,9,9,报错
+    </script>
+</head>
+<body>
+    
+</body>
+</html>

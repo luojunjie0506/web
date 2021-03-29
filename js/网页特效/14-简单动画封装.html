@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100px;
+            height: 100px;
+            background-color: plum;
+        }
+        span {
+            position: absolute;
+            top: 200px;
+            left: 0;
+            display: block;
+            width: 150px;
+            height: 150px;
+            background-color: purple;
+        }
+    </style>
+</head>
+<body>
+    <button>点击夏雨荷</button>
+    <div></div>
+    <span></span>
+    <script>
+        // 简单动画函数封装 obj目标对象 target目标位置
+        // 因为声明变量会加重内存负荷,在加上传过来的值是一个对象,所以定时器可以作为对象的一个属性
+        function animate(obj, target) {
+            // 因为多次调用该方法会加快速度，所以再每次调用之前都清除之前的方法
+            clearInterval(obj.timer)
+            obj.timer = setInterval(function() {
+                if(obj.offsetLeft >= target) {
+                    clearInterval(obj.timer)
+                } else {
+                    obj.style.left = obj.offsetLeft + 2 + 'px'
+                }
+            },30)
+        }
+        var div = document.querySelector('div')
+        var span = document.querySelector('span')
+        var btn = document.querySelector('button')
+        // 调用函数
+        animate(div,500)
+        btn.addEventListener('click',function() {
+            animate(span,500) 
+        })
+        
+    </script>
+</body>
+</html>

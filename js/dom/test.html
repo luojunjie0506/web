@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        div {
+            display: inline-block;
+            width: 0;
+            height: 0;
+            border: 20px solid #000;
+            border-style: solid dashed dashed;
+            border-color: #000 ;
+        }
+    </style>
+</head>
+<body>
+    <div></div>
+    <script>
+        var div = document.querySelector('div')
+        div.addEventListener('click',fn)
+        function fn() {
+            alert('515')
+        }
+    </script>
+</body>
+</html>

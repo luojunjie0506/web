@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="animate.js"></script>
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        .sliderbar {
+            position: fixed;
+            right: 0;
+            bottom: 100px;
+            width: 35px;
+            height: 35px;
+            text-align: center;
+            line-height: 40px;
+            cursor: pointer;
+            color: #fff;
+        }
+        span {
+            position: absolute;
+            top: 0;
+            left: 0;
+            display: block;
+            width: 35px;
+            height: 35px;
+            line-height: 35px;
+            background-color: red;
+        }
+        .con {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 150px;
+            height: 35px;
+            line-height: 35px;
+            background-color: rosybrown;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="sliderbar">
+        <span>←</span>
+        <div class="con">问题反馈</div>
+    </div>
+    <script>
+        var span =document.querySelector('span')
+        var con = document.querySelector('.con')
+        span.addEventListener('mouseenter',function() {
+            animate(con,-125,function() {
+                span.innerHTML = '→'
+            })
+        });
+        span.addEventListener('mouseout',function() {
+            console.log(222);
+            animate(con,0,function() {
+                span.innerHTML = '←'
+            })
+        })
+    </script>
+</body>
+</html>

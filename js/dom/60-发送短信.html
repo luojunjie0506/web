@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text">
+    <button>发送</button>
+    <script>
+        // 如果代码没有报错，不出结果，首先检查赋值是否带引号
+        var btn = document.querySelector('button')
+        var timer = null
+        btn.addEventListener('click',function() {
+            this.disabled = true
+            var num = 10
+            timer = setInterval(function() {
+                btn.innerHTML = num + '秒'
+                num--
+                if(num === 0 ) {
+                    btn.disabled = false
+                    btn.innerHTML = '发送'
+                    clearInterval(timer)
+                }
+            },1000)
+            
+        })
+    </script>
+</body>
+</html>
